@@ -1,0 +1,16 @@
+pyautogui>=0.9.54
+psutil>=5.9.0
+
+# PyAutoGUI's screenshot backend (pyscreeze) needs Pillow at runtime but
+# does not always declare it as a dependency, so it is listed explicitly
+# here to guarantee screenshot capture works after a fresh install.
+Pillow>=10.0.0
+
+# Optional: only required if you enable the global hotkey feature
+# (hotkey_enabled: true in config.json). The application runs fine
+# without this package; the hotkey feature is simply disabled.
+keyboard>=0.13.5
+
+# System tray icon for the coding error assistant (python main.py).
+# Without it the app falls back to a normal window (or use --classic).
+pystray>=0.19.5
