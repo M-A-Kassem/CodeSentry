@@ -1,0 +1,11 @@
+# Optional: Windows' built-in OCR engine (Windows.Media.Ocr) for the
+# best-effort screen detection provider. Runs locally; nothing is uploaded.
+# Without these packages screen detection still finds red squiggles, but
+# cannot read error text.
+winrt-runtime>=3.2.1
+winrt-Windows.Foundation>=3.2.1
+winrt-Windows.Foundation.Collections>=3.2.1
+winrt-Windows.Globalization>=3.2.1
+winrt-Windows.Graphics.Imaging>=3.2.1
+winrt-Windows.Media.Ocr>=3.2.1
+winrt-Windows.Storage.Streams>=3.2.1
