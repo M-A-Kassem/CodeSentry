@@ -1,0 +1,48 @@
+{
+  "name": "error-counter-bridge",
+  "displayName": "Error Counter Bridge",
+  "description": "Sends VS Code's diagnostics (the Problems panel) to the local Screenshot & Error Logger tray app. Diagnostics only, never file contents; localhost only.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Other", "Linters"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "errorCounterBridge.sendNow", "title": "Error Counter Bridge: Send Diagnostics Now" },
+      { "command": "errorCounterBridge.showLog", "title": "Error Counter Bridge: Show Log" }
+    ],
+    "configuration": {
+      "title": "Error Counter Bridge",
+      "properties": {
+        "errorCounterBridge.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Send diagnostics to the local Screenshot & Error Logger app."
+        },
+        "errorCounterBridge.includeWarnings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include warnings (errors are always included)."
+        },
+        "errorCounterBridge.includeInformation": {
+          "type": "boolean",
+          "default": false,
+          "description": "Include information-level diagnostics. Hints are never sent."
+        },
+        "errorCounterBridge.discoveryFile": {
+          "type": "string",
+          "default": "",
+          "description": "Override the bridge discovery file. Default: %LOCALAPPDATA%\\ScreenshotErrorLogger\\vscode-bridge.json"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test test/extension.test.js"
+  }
+}
