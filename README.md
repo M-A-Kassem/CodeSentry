@@ -52,39 +52,7 @@ Everything stays on your machine. No cloud, no account, no telemetry.
 
 - **Windows 10/11** (uses Win32 APIs, EnvDTE, the Windows Event Log).
 - **Python 3.10+**.
-- **Optional analyzers** (used only if present on `PATH`): the .NET SDK
-  (`csc`, `dotnet`), Ruff, Pyright, Node.js (`node --check`), TypeScript
-  (`tsc`), `javac`, `gofmt`, clang/gcc.
-- **Optional OCR**: Tesseract via `pytesseract` (see
-  [`requirements-ocr.txt`](requirements-ocr.txt)).
 
----
-
-## Install
-
-```powershell
-git clone https://github.com/<your-user>/CodeSentry.git
-cd CodeSentry
-
-py -3 -m venv .venv
-.\.venv\Scripts\Activate.ps1
-
-pip install -r requirements.txt
-
-# Optional: screen-detection / OCR dependencies
-pip install -r requirements-ocr.txt
-
-# Optional: dev tooling (ruff, pytest)
-pip install -r requirements-dev.txt
-```
-
-Copy the example configuration (first run also generates one):
-
-```powershell
-copy config.example.json config.json
-```
-
----
 
 ## Run
 
@@ -102,21 +70,7 @@ python main.py --monitor
 python main.py --stop-monitor
 ```
 
-### VS Code companion extension
 
-Install once (requires Node.js):
-
-```powershell
-cd vscode-extension
-npx @vscode/vsce package --allow-missing-repository --skip-license
-code --install-extension error-counter-bridge-0.1.0.vsix
-```
-
-See [`vscode-extension/README.md`](vscode-extension/README.md) for the
-bridge security model (loopback-only, exclusive-port bind, per-session
-token, no file content transmitted).
-
----
 
 ## Configuration
 
@@ -186,22 +140,3 @@ buffers, and the incident logger. Analyzers that need external toolchains
 not installed on the CI are mocked.
 
 ---
-
-## Privacy & security
-
-- **No network use** except the loopback bridge for the VS Code
-  extension — bound to `127.0.0.1`, exclusive port, random per-session
-  token, non-loopback or browser-originated requests refused.
-- **No file contents transmitted.** The bridge forwards diagnostic
-  metadata only.
-- **No shells, no interpreter calls.** Analyzer and build-tool commands
-  are argument lists, never shell strings.
-- **Nothing is installed on your behalf.** Missing tools are reported,
-  never auto-fetched.
-
----
-
-## License
-
-MIT — see [`LICENSE`](LICENSE).
-
