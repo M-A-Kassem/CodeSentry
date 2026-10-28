@@ -1,0 +1,58 @@
+{
+  "screenshot_enabled": true,
+  "retention_days": 0,
+  "hotkey_enabled": false,
+  "hotkey_combo": "ctrl+shift+f9",
+  "log_level": "INFO",
+
+  "event_monitoring_enabled": false,
+  "event_monitoring_poll_seconds": 30,
+
+  "auto_monitor_enabled": false,
+  "overlay_enabled": false,
+  "overlay_x": null,
+  "overlay_y": null,
+
+  "new_issue_debounce_seconds": 3.0,
+  "record_new_errors_to_history": true,
+  "record_new_warnings_to_history": false,
+  "screenshot_on_new_coding_error": false,
+
+  "vscode_bridge_enabled": true,
+  "vscode_bridge_port": 0,
+
+  "visual_studio_enabled": true,
+  "visual_studio_poll_seconds": 5,
+
+  "screen_detection_enabled": false,
+  "screen_poll_seconds": 5,
+  "screen_ocr_enabled": true,
+  "screen_min_confidence_to_count": 0.8,
+
+  "project_analysis_enabled": true,
+  "project_path": null,
+  "project_exclude_dirs": [],
+  "project_poll_seconds": 3.0,
+  "project_max_files": 20000,
+  "analyze_unsaved_editor_text": true,
+
+  "analyzers": {
+    "python-compile": true,
+    "ruff": true,
+    "pyright": true,
+    "mypy": false,
+    "csc": true,
+    "dotnet-build": false,
+    "node-check": true,
+    "tsc": true,
+    "eslint": false,
+    "clang": true,
+    "gcc": true,
+    "javac": true,
+    "gofmt": true,
+    "json": true,
+    "xml": true
+  },
+
+  "build_tools": []
+}
